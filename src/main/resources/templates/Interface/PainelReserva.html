@@ -1,0 +1,620 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleafe.org">
+
+<head>
+<meta charset="utf-8" />
+<link rel="apple-touch-icon" sizes="76x76"
+	href="../assets/img/apple-icon.png">
+<link rel="icon" type="image/png" href="../assets/img/favicon.ico">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>PAINEL USUÀRIO</title>
+<meta
+	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+	name='viewport' />
+<!--     Fonts and icons     -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+	integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+	crossorigin="anonymous">
+<link href='/main.css' rel='stylesheet' />
+<script src='/main.js'></script>
+<script src="/reserva.js"></script>
+<!--  <script src="/post.js"></script>-->
+<script src="/put.js"></script>
+<script src="/delete.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
+	rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+<!-- CSS Files -->
+<link href="/bootstrapPainel.min.css" rel="stylesheet" />
+<link href="/painelAdm.css " rel="stylesheet" />
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+	crossorigin="anonymous"></script>
+<script src="/administrador.js"></script>
+<script src="/reserva.js"></script>
+<!-- CSS Just for demo purpose, don't include it in your project -->
+<link href="/demoPainel.css" rel="stylesheet" />
+
+
+<link href='/calendario.css' rel='stylesheet' />
+
+<style type="text/css">
+#calendar {
+	max-width: 1100px;
+	margin: 30px auto;
+}
+
+#modal-body {
+	border: 3px solid red;
+}
+
+.modal-header {
+	color: white;
+	padding: 12px;
+	background-color: red;
+	padding: 12px;
+}
+
+.modal-title {
+	font-family: verdana;
+	padding: 8px;
+}
+</style>
+
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="sidebar" data-image="../assets/img/senai.png">
+			<!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+			<div class="sidebar-wrapper">
+				<div class="logo">"RICARDO LERNER"</div>
+				<ul class="nav">
+					<li><a class="nav-link" href="/home"> <i
+							class=" large material-icons">home</i>
+							<p>Home</p>
+					</a></li>
+
+					<li><a class="nav-link" href="/painelReserva"> <i
+							class=" large material-icons">event_seat</i>
+							<p>Auditório</p>
+					</a></li>
+
+					<li><a class="nav-link" href="/perfilUsuario"> <i
+							class=" large material-icons">perm_identity</i>
+							<p>Perfil</p>
+					</a></li>
+
+
+					<li>
+				</ul>
+			</div>
+		</div>
+		<div class="main-panel">
+			<!-- Navbar -->
+			<nav class="navbar navbar-expand-lg " color-on-scroll="500">
+				<div class="container-fluid">
+					<a class="navbar-brand"> Disponibilidade do Auditório </a>
+
+					<div class="collapse navbar-collapse justify-content-end"
+						id="navigation">
+
+						<ul class="navbar-nav ml-auto">
+
+
+							<li class="nav-item"><a class="nav-link"
+								href="/perfilUsuario"> <span class="no-icon"><i
+										class=" medium material-icons">account_circle</i></span>
+							</a></li>
+							<li class="nav-item"><a class="nav-link" href="/logOut">
+									<span class="no-icon"><i class=" medium material-icons">exit_to_app</i></span>
+							</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+
+
+			<div id="calendar"></div>
+
+
+
+
+		</div>
+
+
+		<div id="modalId" class="modal" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">NOVA RESERVA</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span style="color: white" aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+
+						<form>
+							<input type="text" id="idUsuario"> <input type="hidden"
+								id="id">
+							<div class="form-row">
+								<div class="form-group col-md-6">
+									<label for="inputEmail4">TÍTULO DO EVENTO</label> <input
+										required="required" type="text" class="form-control"
+										id="title2">
+								</div>
+								<div class="form-group col-md-6">
+									<label for="inputPassword4">INÍCIO DO EVENTO</label> <input
+										type="datetime-local" class="form-control" id="start2">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputAddress">FINAL DO EVENTO</label> <input
+									required="required" value="#start2" type="datetime-local"
+									class="form-control" id="end2">
+
+
+								<p class="erro" id="erro"></p>
+
+								<button onclick="historico()" style="margin-top: 35px;"
+									type="button" class="btn btn-light">Reservar</button>
+							</div>
+
+						</form>
+
+					</div>
+					<div class="modal-footer"></div>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="modalUpdate" class="modal" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+
+						<h5 class="modal-title">VER EVENTO</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span style="color: white" aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div style="margin: 0 auto;" class="modal-body">
+
+						<form>
+							<input type="hidden" id="idUsuario"> <input type="hidden"
+								id="idUpdate">
+
+							<div class="form-row">
+								<div class="form-group col-md-8">
+									<label for="inputEmail4">TÍTULO DO EVENTO</label> <input
+										type="text" class="form-control" id="titleUpdate">
+								</div>
+								<div class="form-group col-md-8">
+									<label for="inputEmail4">USUÀRIO</label> <input readonly
+										style="background-color: transparent;" type="text"
+										class="form-control" id="usuarioUpdate">
+								</div>
+								<div class="form-group col-md-8">
+									<label for="inputPassword4">INÍCIO DO EVENTO</label> <input
+										type="datetime-local" class="form-control" id="startUpdate">
+								</div>
+								<div class="form-group col-md-8">
+									<label for="inputAddress">FINAL DO EVENTO</label> <input
+										value="#start2" type="datetime-local" class="form-control"
+										id="endUpdate">
+								</div>
+								<button onclick="update()" style="margin-right: 10px;"
+									id="btnAlterar" type="button" class="btn btn-dark col-md-5">ALTERAR</button>
+								<button onclick="apagar()" type="button"
+									class="btn btn-dark col-md-5" id="btnExcluir">DELETAR</button>
+							</div>
+
+
+
+
+
+
+
+
+
+
+
+
+							<!--  <table th:each="us : ${evento}">
+								<tr>
+									<td>
+
+										<button th:if="${session.usuarioLogado.id == us.usuario.id}"
+											type="submit" class="btn btn-primary">ALTERAR</button>
+										<button th:if="${session.usuarioLogado.id == us.usuario.id}"
+											onclick="apagar()" type="button" class="btn btn-primary">DELETAR</button>
+									</td>
+								</tr>
+
+							</table>-->
+
+
+
+						</form>
+
+
+
+					</div>
+					<div class="modal-footer"></div>
+				</div>
+			</div>
+		</div>
+
+		<div id="eventoModal" class="modal" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Reserva</h5>
+					</div>
+					<div id="bodyModal" class="modal-body modal-xl">
+
+
+						<dl class="row">
+							<dt class="col-sm-5">Número Da Reserva:</dt>
+							<dd id="idModal" class="col-sm-9"></dd>
+							<dt class="col-sm-5">TÍTULO:</dt>
+							<dd id="titleModal" class="col-sm-9"></dd>
+							<dt class="col-sm-5">INICIO DO EVENTO:</dt>
+							<dd id="startModal" class="col-sm-9"></dd>
+							<dt class="col-sm-5">FIM DO EVENTO:</dt>
+							<dd id="endModal" class="col-sm-9"></dd>
+						</dl>
+					</div>
+					<div class="modal-footer"></div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			function colocaValor() {
+				let token = sessionStorage.getItem("token");
+				let payload = parseJwt(token);
+				var id = payload.id_admin;
+				if (payload.tipoUsuario === "usuario") {
+					console.log("ENTREI NO IF DO USUARIO")
+					token = sessionStorage.getItem("token");
+					payload = parseJwt(token);
+					console.log(payload);
+					var id = payload.id_usuario;
+					console.log(id);
+					let idUsuario = document.getElementById("idUsuario")
+					let idUsuarioU = document.getElementById("idUsuarioU")
+					console.log(idUsuarioU)
+					console.log(idUsuario)
+					idUsuario.value = id;
+					idUsuarioU.value = id;
+					//document.querySelectorAll('#idUsuario').value = id;
+				} else if (payload.tipoAdm === "administrador") {
+					console.log("ENTREI NO ELSE DO ADM")
+					let token = sessionStorage.getItem("token");
+					let payload = parseJwt(token);
+					console.log(payload);
+					let id = payload.id_admin;
+					console.log(id);
+					let idUsuario = document.getElementById("idUsuario")
+					let idUsuarioU = document.getElementById("idUsuarioU")
+					console.log(idUsuarioU)
+					console.log(idUsuario)
+					idUsuario.value = id;
+					idUsuarioU.value = id;
+					//document.querySelectorAll('#idUsuario').value = id;
+
+				}
+			};
+
+			function parseJwt(token) {
+				var base64Url = token.split('.')[1];
+				var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+				var jsonPayload = decodeURIComponent(atob(base64).split('')
+						.map(
+								function(c) {
+									return '%'
+											+ ('00' + c.charCodeAt(0).toString(
+													16)).slice(-2);
+								}).join(''));
+
+				return JSON.parse(jsonPayload);
+			};
+			colocaValor()
+		</script>
+
+		<script type="text/javascript">
+			function fazPost(url, body) {
+				console.log("body=", body)
+				let request = new XMLHttpRequest()
+				request.open("POST", url, true)
+				request.setRequestHeader("content-type", "application/json")
+				request.send(JSON.stringify(body))
+				request.onload = function() {
+					console.log(this.responseText)
+				}
+
+				return request.responseText
+			}
+			
+			
+			
+		
+			
+			function historico() {
+
+				let token = sessionStorage.getItem("token");
+				let payload = parseJwt(token);
+				let url = "http://localhost:8080/api/evento/"
+				let idUsuario = document.getElementById("idUsuario").value
+				console.log(idUsuario)
+				let id = document.getElementById("id").value
+				let title = document.getElementById("title2").value
+				let start = document.getElementById("start2").value
+				let end = document.getElementById("end2").value
+
+				let data = new Date()
+
+				var dia = data.getDate();
+				var mes = data.getMonth();
+				var ano = data.getFullYear();
+				var hora = data.getHours();
+				var min = data.getMinutes();
+				
+				
+				 
+				
+				
+
+				var dataAtual = ano + '-' + '0' + (mes + 1) + '-' + '0' + dia
+						+ 'T' + hora + ':' + min;
+
+				let divErro = document.getElementById("erro")
+
+				if (end < start) {
+
+					const mensagemErro1 = document.createElement('h5')
+
+					const msgErro = document.createTextNode('A Data final não pode acabar antes da data de inicio!')
+
+					mensagemErro1.appendChild(msgErro)
+
+					divErro.appendChild(mensagemErro1)
+					
+					
+
+					
+					
+					setInterval(function Tempo(){ 
+		                var msg = document.getElementsByClassName("erro");
+		                while(msg.length > 0){
+		                    msg[0].parentNode.removeChild(msg[0]);
+		                }
+		            }, 3000);
+					
+					end.focus()
+
+				} else if (start === end) {
+
+					const mensagemErro2 = document.createElement('h5')
+
+					const msgErro2 = document.createTextNode('A data de inicio não pode ser igual a data final!')
+
+					mensagemErro2.appendChild(msgErro2)
+
+					divErro.appendChild(mensagemErro2)
+					
+					setInterval(function Tempo(){ 
+		                var msg = document.getElementsByClassName("erro");
+		                while(msg.length > 0){
+		                    msg[0].parentNode.removeChild(msg[0]);
+		                }
+		            }, 3000);
+					
+					end.focus()
+					
+					
+
+				} else if (start < dataAtual) {
+				
+					const mensagemErro3 = document.createElement('h5')
+
+					const msgErro3 = document.createTextNode('A data/hora inicial não pode ser menor que o dia/hora atual !')
+
+					mensagemErro3.appendChild(msgErro3)
+
+					divErro.appendChild(mensagemErro3)
+					
+					setInterval(function Tempo(){ 
+		                var msg = document.getElementsByClassName("erro");
+		                while(msg.length > 0){
+		                    msg[0].parentNode.removeChild(msg[0]);
+		                }
+		            }, 3000);
+					
+					end.focus()
+					
+					
+
+				} else {
+
+					console.log(id)
+					console.log(title)
+					console.log(start.toLocaleString())
+					console.log(end.toLocaleString())
+
+					if (payload.tipoUsuario === "usuario") {
+						body = {
+							"id" : id,
+							"title" : title,
+							"start" : start,
+							"end" : end,
+							"usuario" : {
+								"id" : idUsuario,
+							}
+						}
+						console.log(body + "usuario")
+
+					} else if (payload.tipoAdm === "administrador") {
+						body = {
+							"id" : id,
+							"title" : title,
+							"start" : start,
+							"end" : end,
+							"administrador" : {
+								"id" : idUsuario,
+							}
+						}
+						console.log(body + "admin")
+					}
+				}
+				;
+				location.reload();
+				fazPost(url, body)
+
+			}
+			function parseJwt(token) {
+				var base64Url = token.split('.')[1];
+				var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+				var jsonPayload = decodeURIComponent(atob(base64).split('')
+						.map(
+								function(c) {
+									return '%'
+											+ ('00' + c.charCodeAt(0).toString(
+													16)).slice(-2);
+								}).join(''));
+
+				return JSON.parse(jsonPayload);
+			};
+		</script>
+
+		<script type="text/javascript">
+			function fazPut(url, body) {
+				console.log("body=", body)
+				let request = new XMLHttpRequest()
+				request.open("PUT", url, true)
+				request.setRequestHeader("content-type", "application/json")
+				request.send(JSON.stringify(body))
+
+				request.onload = function() {
+					console.log(this.responseText)
+				}
+
+				return request.responseText
+			}
+			function update() {
+				let token = sessionStorage.getItem("token");
+				let payload = parseJwt(token);
+				console.log("entrei update")
+				let id = document.getElementById("idUpdate").value
+				console.log(id)
+				let idUsuario = document.getElementById("idUsuario").value
+				console.log(idUsuario)
+				let title = document.getElementById("titleUpdate").value
+				let start = document.getElementById("startUpdate").value
+				let end = document.getElementById("endUpdate").value
+				let url = "http://localhost:8080/api/evento/" + id
+
+				if (end < start) {
+					alert('A Data final não pode acabar antes do inicio!');
+
+					end.focus()
+
+				} else if (start === end) {
+					alert("data inicio não pode ser igual a data final")
+				} else if (start > end) {
+					alert("ERROOOO")
+				} else {
+
+					-
+
+					console.log(id)
+					console.log(title)
+					console.log(start.toLocaleString())
+					console.log(end.toLocaleString())
+
+					if (payload.tipoUsuario === "usuario") {
+						body = {
+							"id" : id,
+							"title" : title,
+							"start" : start,
+							"end" : end,
+							"usuario" : {
+								"id" : idUsuario,
+							}
+						}
+						console.log(body + "usuario")
+
+					} else if (payload.tipoAdm === "administrador") {
+						body = {
+							"id" : id,
+							"title" : title,
+							"start" : start,
+							"end" : end,
+							"administrador" : {
+								"id" : idUsuario,
+							}
+						}
+						console.log(body + "admin")
+					}
+
+					fazPut(url, body)
+					location.reload()
+				}
+			}
+			function parseJwt(token) {
+				var base64Url = token.split('.')[1];
+				var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+				var jsonPayload = decodeURIComponent(atob(base64).split('')
+						.map(
+								function(c) {
+									return '%'
+											+ ('00' + c.charCodeAt(0).toString(
+													16)).slice(-2);
+								}).join(''));
+
+				return JSON.parse(jsonPayload);
+			};
+		</script>
+</html>
